@@ -14,4 +14,5 @@ micro.main.QueryController
 #How to test
 
 http://localhost:8080/spark?text=select * from vehicle
+<BR>
 http://localhost:8080/spark?text=select * from vehicle where year = '2005'
