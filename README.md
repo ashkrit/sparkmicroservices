@@ -2,6 +2,7 @@
 
 #Blog
 http://ashkrit.blogspot.com/2018/05/spark-microservices.html
+http://ashkrit.blogspot.sg/2018/05/custom-logs-in-apache-spark.html
 
 #How to Build
 
