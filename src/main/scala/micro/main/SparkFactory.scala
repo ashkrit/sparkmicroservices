@@ -3,6 +3,7 @@ package micro.main
 import java.nio.file.Paths
 
 import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
 
@@ -25,6 +26,7 @@ object SparkFactory {
   def loadAsTable(context: SparkSession, fileName: String, table: String): SparkSession = {
     import context.implicits._
     val data = context.read.format("csv").option("header", "true").csv(fileName).as[Vehicle]
+
     data.printSchema()
     _LOG.info("Schema details {}", data.schema.treeString)
     data.cache()

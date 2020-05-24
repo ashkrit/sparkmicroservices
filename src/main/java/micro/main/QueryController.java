@@ -22,8 +22,9 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
-@Controller
 @EnableAutoConfiguration
+@Controller
+
 public class QueryController {
 
     private static final Logger _log = LoggerFactory.getLogger(QueryController.class);
@@ -89,6 +90,7 @@ public class QueryController {
 
     private List<Map> execute(SparkSession sql, String text) {
         Dataset<Row> content = sql.sql(text);
+
         return content.takeAsList(100).stream().map(row -> {
             Map<String, Object> rowData = new LinkedHashMap<>();
             rowData.put("year", row.getAs(0));
@@ -98,7 +100,7 @@ public class QueryController {
         }).collect(toList());
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(QueryController.class, args);
     }
 
